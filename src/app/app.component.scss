@@ -1,0 +1,137 @@
+@use '../scss/mixins.scss';
+
+@mixin inputArea () {
+    outline: none;
+    border: none;
+}
+
+.header-row {
+    width: 98vw;
+    @include mixins.flexBox(row, space-between);
+    span {
+        width: fit-content;
+    }
+}
+
+.search-bar {
+    background-color: var(--input-bg);
+    color: var(--input-font);
+    margin: 0.5rem;
+    width: 90%;
+    max-width: 600px;
+    @include mixins.flexBox(row, space-between);
+    padding-left: 10px;
+}
+
+.search-bar input {
+    @include inputArea();
+    background: none;
+    width: 90%;
+    font-size: 0.8em;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.button-row {
+    @include mixins.flexBox(row, space-between);
+    width: 100%;
+}
+
+.button-row button {
+    padding: 0.5em;
+}
+
+.search-bar .cancel-btn {
+    @include mixins.flexBox(column, center);
+    padding: 1.5em;
+
+    &::before,
+    &::after {
+        height: 20px;
+        width: 2px;
+    }
+}
+
+.notes-app {
+    @include mixins.flexBox(column, flex-start)
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    @include mixins.flexBox(column, center);
+    z-index: 1;
+}
+
+.modal {
+    background-color: var(--background);
+    padding: 1.5rem;
+    width: 100vw;
+    max-width: 600px;
+}
+
+.modal-flex {
+    width: 100%;
+    @include mixins.flexBox(row, space-between);
+}
+
+textarea {
+    @include inputArea();
+}
+
+.color-list {
+    height: 30px;
+    @include mixins.flexBox(row, space-between);
+}
+
+.radio-btn {
+    position: relative;
+    @include mixins.flexBox(row, space-between)
+}
+
+.color-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-btn .color-input:checked+label {
+    border: 1px solid var(--font);
+}
+
+.radio-btn label {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.icon-button {
+    opacity: 0.5;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.submit-btn {
+    opacity: 1;
+    background-color: #123c17;
+    &:hover {
+        background-color: #2d8737;
+    }
+}
+
+button {
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover {
+        opacity: 1;
+    }
+}

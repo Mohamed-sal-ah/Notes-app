@@ -1,1 +1,185 @@
 /* You can add global styles to this file, and also import other style files */
+@use './scss/mixins.scss';
+
+@font-face {
+    font-family: "Roboto";
+    src: url('./assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url('./assets/fonts/Roboto-Light.ttf');
+}
+
+:root {
+    --font : #000000;
+    --background : #FFFFFF;
+    --input-bg : #EDEDED;
+    --input-font : #2E2E2E;
+    --icon : invert(0);
+    --blue : #A8C6F0;
+    --green : #8EEE79;
+    --yellow : #FFF371;
+    --red : #FFADAD;
+    --purple : #D0ABF7;
+    --bg-rgb : 0,0,0;
+    --box-shadow : rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+body {
+    font-size: clamp(1.2rem, 0.2447rem + 2.4169vw, 1.3rem);
+}
+
+div,h1,input,button,span,p,img {
+    transition: all 0.3s ease;
+}
+
+body.dark {
+    --bg-rgb : 60,60,60;
+    --font : #FFFFFF;
+    --background : #000000;
+    --input-bg : #2E2E2E;
+    --input-font : #EDEDED;
+    background: var(--background);
+    --icon : invert(1);
+    --blue : #1e2630;
+    --green : #273624;
+    --yellow : #474425;
+    --red : #342020;
+    --purple : #3C3147;
+    --box-shadow : none;
+}
+
+img{
+    filter: var(--icon);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.modal-background {
+ background-color: rgba(var(--bg-rgb), 0.75);
+}
+
+.blue {
+    background: var(--blue);
+}
+
+.green {
+    background: var(--green);
+}
+
+.yellow {
+    background: var(--yellow);
+}
+
+.red {
+    background: var(--red);
+}
+
+.purple {
+    background: var(--purple);
+}
+
+input,textarea,h1,h3,p {
+    color: var(--font);
+}
+
+h1,h3,.submit-btn {
+    font-family: Roboto;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 1.7em;
+    padding: 10px;
+}
+
+h3 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+input,textarea,p {
+    font-family: Roboto-Light;
+}
+
+button {
+    border-radius: 0;
+}
+
+form {
+    @include mixins.flexBox(column, space-between)
+}
+
+textarea {
+    background-color: var(--input-bg);
+    color: var(--input-font);
+    font-size: 0.8em;
+    width: 100%;
+    border-radius: 0;
+    padding: 10px;
+    margin: 10px 0;
+    resize: none;
+    align-self: flex-start;
+}
+
+ul {
+    margin: 20px auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    min-width: 95%;
+    max-width: 90vw;
+    @media (min-width: 650px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 0fr));
+    }
+}
+
+li {
+    width: 100%;
+    max-width: 90vw;
+    min-height: 200px;
+    list-style-type: none;
+    justify-self: center;
+    position: relative;
+}
+
+.cancel-btn {
+    @include mixins.flexBox(column, center);
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 1.25em;
+    &::before,
+    &::after {
+        border-radius: 5px;
+        position: absolute;
+        content: '';
+        height: 20px;
+        width: 3px;
+        background-color: var(--font);
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.submit-btn {
+    appearance: none;
+    border-radius: 0;
+    cursor: pointer;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
