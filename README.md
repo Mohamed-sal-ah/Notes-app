@@ -1,6 +1,6 @@
-# Angular Notes App
+# Angular Notes app
 
-A simple Notes app build with Angular Framework and CSS pre-processor SASS.
+A simple Notes app build with Angular Framework and CSS pre-processor SCSS.
 
 ## Description
 
